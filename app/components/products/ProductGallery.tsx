@@ -1,7 +1,21 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
+
+type DesignImage = {
+  id: string;
+  image_url: string;
+  is_main: boolean;
+  sort_order: number;
+};
+
+type Design = {
+  id: string;
+  name: string;
+  slug: string;
+  images: DesignImage[];
+};
 
 type Props = {
   images: string[];
@@ -14,50 +28,76 @@ export default function ProductGallery({
 }: Props) {
   const [selected, setSelected] = useState(0);
 
+  useEffect(() => {
+    setSelected(0);
+  }, [images]);
+
+  if (!images || images.length === 0) {
+    return (
+      <div className="overflow-hidden rounded-[30px] border border-slate-200 bg-slate-50 shadow-xl">
+        <div className="flex aspect-square w-full items-center justify-center">
+          <p className="text-sm text-slate-400">
+            No product images available.
+          </p>
+        </div>
+      </div>
+    );
+  }
+
+  const thumbnailColumns =
+    images.length === 1
+      ? "grid-cols-1 max-w-[140px]"
+      : images.length === 2
+        ? "grid-cols-2 max-w-[280px]"
+        : images.length === 3
+          ? "grid-cols-3 max-w-[420px]"
+          : images.length === 4
+            ? "grid-cols-4 max-w-[560px]"
+            : "grid-cols-5";
+
   return (
     <div>
+      {/* MAIN PRODUCT IMAGE */}
 
-      <div className="overflow-hidden rounded-[30px] border bg-slate-50 shadow-xl">
-
-        <Image
-          src={images[selected]}
-          alt={title}
-          width={900}
-          height={900}
-          priority
-          className="w-full object-cover transition duration-300"
-        />
-
+      <div className="overflow-hidden rounded-[30px] border border-slate-200 bg-slate-50 shadow-xl">
+        <div className="aspect-square w-full">
+          <Image
+            src={images[selected]}
+            alt={title}
+            width={1200}
+            height={1200}
+            priority
+            className="h-full w-full object-cover transition duration-300"
+          />
+        </div>
       </div>
 
-      <div className="mt-5 grid grid-cols-4 gap-4">
+      {/* PRODUCT GALLERY */}
 
+      <div
+        className={`mt-5 grid gap-3 ${thumbnailColumns}`}
+      >
         {images.map((image, index) => (
-
           <button
-            key={index}
+            key={`${image}-${index}`}
+            type="button"
             onClick={() => setSelected(index)}
-            className={`overflow-hidden rounded-2xl border transition-all duration-300 ${
+            className={`aspect-square overflow-hidden rounded-2xl border transition-all duration-300 ${
               selected === index
                 ? "border-[#153B63] ring-2 ring-[#153B63]"
                 : "border-slate-200 hover:border-[#153B63]"
             }`}
           >
-
             <Image
               src={image}
-              alt={`${title}-${index}`}
-              width={250}
-              height={250}
-              className="aspect-square object-cover"
+              alt={`${title} image ${index + 1}`}
+              width={300}
+              height={300}
+              className="h-full w-full object-cover"
             />
-
           </button>
-
         ))}
-
       </div>
-
     </div>
   );
 }

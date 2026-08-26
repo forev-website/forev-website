@@ -6,13 +6,13 @@ import Production from "@/app/components/home/Production";
 import Stats from "@/app/components/home/Stats";
 import Trust from "@/app/components/home/Trust";
 import ExportMap from "@/app/components/home/ExportMap";
-import FactoryTimeline from "@/app/components/home/FactoryTimeline";
 import Contact from "@/app/components/home/Contact";
 import Footer from "@/app/components/layout/Footer";
 
 export default function HomePage() {
   return (
-    <main className="min-h-screen bg-white text-slate-900">
+    <main className="min-h-screen bg-white">
+
       <Header />
 
       <Hero />
@@ -29,11 +29,10 @@ export default function HomePage() {
 
       <ExportMap />
 
-      <FactoryTimeline />
-
       <Contact />
 
       <Footer />
+
     </main>
   );
 }

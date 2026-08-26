@@ -1,149 +1,260 @@
 export const productData = [
+
   {
     slug: "welsoft",
-    title: "Welsoft Yorgan",
-
+    title: "Welsoft Quilts",
     images: [
       "/images/welsoft/welsoft.png",
-      "/images/welsoft/welsoft.png",
-      "/images/welsoft/welsoft.png",
-      "/images/welsoft/welsoft.png",
+      "/images/welsoft/1.png",
+      "/images/welsoft/2.png",
+      "/images/welsoft/3.png",
+      "/images/welsoft/4.png",
     ],
-
-    short: "4 Mevsim Premium Üretim",
-
+    short: "Premium All-Season Production",
     description:
-      "Welsoft kumaşı ve silikon dolgusuyla dört mevsim kullanıma uygun premium yorgan.",
-
-    sizes: [
-      "155x215",
-      "195x215",
-      "Özel Ölçü",
-    ],
-
+      "Premium welsoft quilts with soft fabric and silicone filling, designed for comfortable use throughout all seasons.",
     features: [
-      "%100 Silikon Dolgu",
-      "Çift Taraflı Kullanım",
-      "Yazlık & Kışlık",
-      "İstenilen Ölçüde Üretim",
+      "100% Silicone Filling",
+      "Double-Sided Use",
+      "Suitable for All Seasons",
+      "Custom Size Production",
     ],
   },
 
   {
     slug: "pike",
-    title: "Pike Takımı",
-
+    title: "Bedspreads & Pique",
     images: [
       "/images/pike/pike.png",
-      "/images/pike/pike.png",
-      "/images/pike/pike.png",
-      "/images/pike/pike.png",
     ],
-
-    short: "Tek ve Çift Kişilik",
-
+    short: "Modern Bedspread & Pique Collections",
     description:
-      "Modern desenli kapitone pike takımları. İstenilen ölçü ve desenlerde üretim yapılmaktadır.",
-
-    sizes: [
-      "160x230",
-      "200x230",
-      "Özel Ölçü",
-    ],
-
+      "Modern bedspread and pique collections available in different designs and fabric options, with custom production according to customer requirements.",
     features: [
-      "%65 Pamuk",
-      "%35 Polyester",
-      "Kapitone",
-      "Özel Üretim",
+      "65% Cotton",
+      "35% Polyester",
+      "Quilted Design",
+      "Custom Production",
     ],
   },
 
   {
     slug: "alez",
-    title: "Alez",
-
+    title: "Mattress Protectors",
     images: [
       "/images/alez/alez.png",
-      "/images/alez/alez.png",
-      "/images/alez/alez.png",
-      "/images/alez/alez.png",
     ],
-
-    short: "Sıvı Geçirmez Koruma",
-
+    short: "Waterproof Mattress Protection",
     description:
-      "Sıvı geçirmez, nefes alabilen ve uzun ömürlü yatak koruyucu alez üretimi.",
-
-    sizes: [
-      "90x190",
-      "100x200",
-      "160x200",
-      "180x200",
-    ],
-
+      "Waterproof and breathable mattress protectors designed for long-lasting protection and everyday use.",
     features: [
-      "Sıvı Geçirmez",
-      "Nefes Alır",
-      "Lastikli",
-      "Yıkanabilir",
+      "Waterproof",
+      "Breathable",
+      "Fitted Design",
+      "Machine Washable",
+      "Custom Size Production",
     ],
   },
 
   {
     slug: "bebek",
-    title: "Bebek Tekstili",
-
+    title: "Baby Textile",
     images: [
       "/images/bebek/bebek.png",
-      "/images/bebek/bebek.png",
-      "/images/bebek/bebek.png",
-      "/images/bebek/bebek.png",
     ],
-
-    short: "Uyku Setleri",
-
+    short: "Baby Bedding & Sleep Sets",
     description:
-      "Bebekler için özel üretilen welsoft yorgan ve uyku setleri.",
-
-    sizes: [
-      "100x150",
-      "Özel Ölçü",
-    ],
-
+      "Soft baby textile collections including welsoft quilts and sleep sets, carefully produced for comfort and everyday use.",
     features: [
-      "Welsoft Kumaş",
-      "Pamuklu Kumaş",
-      "Silikon Dolgu",
-      "Antialerjik",
+      "Welsoft Fabric",
+      "Cotton Fabric Options",
+      "Silicone Filling",
+      "Antiallergic",
+      "Custom Size Production",
     ],
   },
 
   {
     slug: "otel",
-    title: "Otel Tekstili",
-
+    title: "Hotel Textile",
     images: [
       "/images/otel/otel.png",
-      "/images/otel/otel.png",
-      "/images/otel/otel.png",
-      "/images/otel/otel.png",
     ],
-
-    short: "Profesyonel Üretim",
-
+    short: "Professional Hotel Textile Production",
     description:
-      "Otel, pansiyon ve konaklama tesisleri için profesyonel tekstil üretimi.",
-
-    sizes: [
-      "İstenilen Ölçü",
-    ],
-
+      "Professional textile manufacturing for hotels, guesthouses and hospitality businesses, with flexible production according to customer requirements.",
     features: [
-      "Toplu Üretim",
-      "OEM",
+      "Bulk Production",
+      "OEM Manufacturing",
       "Private Label",
-      "İhracat",
+      "Custom Size Production",
+      "International Shipping",
     ],
   },
+
+  {
+    slug: "bornoz",
+    title: "Bathrobes",
+    images: [
+      "/images/bornoz/bornoz.png",
+      "/images/bornoz/1.png",
+      "/images/bornoz/2.png",
+      "/images/bornoz/3.png",
+    ],
+    short: "Premium Bathrobe Production",
+    description:
+      "Premium bathrobes manufactured for retail, wholesale, hospitality and international markets, with custom production according to customer requirements.",
+    features: [
+      "Premium Fabric Options",
+      "Soft & Comfortable",
+      "High-Quality Stitching",
+      "Custom Size Production",
+      "Wholesale & Private Label",
+    ],
+  },
+
+  {
+    slug: "towels",
+    title: "Towels",
+    images: [
+      "/images/towels/towels.png",
+      "/images/towels/1.png",
+      "/images/towels/2.png",
+      "/images/towels/3.png",
+      "/images/towels/4.png",
+    ],
+    short: "Premium Towel Collections",
+    description:
+      "Premium towel collections including hand towel sets, hammam sets and bath towels, manufactured for wholesale, retail and international markets.",
+    features: [
+      "Premium Quality",
+      "Soft & Absorbent",
+      "Hand Towel Sets",
+      "Hammam Sets",
+      "Bath Towels",
+      "Custom Production",
+      "Wholesale & Private Label",
+    ],
+  },
+
+  {
+    slug: "dish-cloths",
+    title: "Dish Cloths",
+    images: [
+      "/images/dish-cloths/dish-cloths.png",
+      "/images/dish-cloths/1.png",
+    ],
+    short: "Kitchen Dish Cloth Collections",
+    description:
+      "Practical and high-quality dish cloth collections designed for everyday kitchen use, wholesale and retail markets.",
+    features: [
+      "High Absorbency",
+      "Soft Texture",
+      "Durable Fabric",
+      "Easy Care",
+      "Custom Production",
+      "Wholesale & Private Label",
+    ],
+  },
+
+  {
+    slug: "kitchen-towels",
+    title: "Kitchen Towels",
+    images: [
+      "/images/kitchen-towels/kitchen-towels.png",
+      "/images/kitchen-towels/1.png",
+      "/images/kitchen-towels/2.png",
+    ],
+    short: "Premium Kitchen Towel Collections",
+    description:
+      "High-quality kitchen towel collections designed for everyday use, retail, wholesale and private-label production.",
+    features: [
+      "Soft & Absorbent",
+      "Durable Fabric",
+      "Easy Care",
+      "Kitchen Use",
+      "Custom Production",
+      "Wholesale & Private Label",
+    ],
+  },
+
+  {
+    slug: "bath-mats",
+    title: "Bath Mats",
+    images: [
+      "/images/bath-mats/bath-mats.png",
+      "/images/bath-mats/1.png",
+    ],
+    short: "Premium Bath Mat Collections",
+    description:
+      "Premium bath mat collections designed for comfort, absorbency and everyday bathroom use, suitable for wholesale, retail and private-label production.",
+    features: [
+      "Soft & Absorbent",
+      "Comfortable Texture",
+      "Durable Fabric",
+      "Quick Drying",
+      "Custom Production",
+      "Wholesale & Private Label",
+    ],
+  },
+
+  {
+    slug: "kids-bathrobes",
+    title: "Kids Bathrobes",
+    images: [
+      "/images/kids-bathrobes/kids-bathrobes.png",
+    ],
+    short: "Kids Bathrobe Collections",
+    description:
+      "Soft and comfortable kids bathrobe collections available in different age groups, designed for retail, wholesale and private-label production.",
+    features: [
+      "Soft & Comfortable",
+      "Kids Bathrobe Collection",
+      "1–2 Years",
+      "3–4 Years",
+      "5–6 Years",
+      "7–8 Years",
+      "9–10 Years",
+      "Custom Production",
+      "Wholesale & Private Label",
+    ],
+  },
+
+  {
+    slug: "welsoft-bathrobes",
+    title: "Welsoft Dressing Gowns",
+    images: [
+      "/images/welsoft-bathrobes/welsoft-bathrobes.png",
+    ],
+    short: "Premium Welsoft Dressing Gown Collection",
+    description:
+      "Soft and comfortable welsoft dressing gowns designed for retail, wholesale, hospitality and private-label production.",
+    features: [
+      "Soft Welsoft Fabric",
+      "Comfortable & Warm",
+      "Premium Quality",
+      "Custom Production",
+      "Wholesale & Private Label",
+    ],
+  },
+
+  {
+    slug: "tv-blankets",
+    title: "Welsoft TV Blankets & Throws",
+    images: [
+      "/images/tv-blankets/tv-blankets.png",
+    ],
+    short: "Soft & Comfortable Welsoft TV Blanket Collections",
+    description:
+      "Soft and comfortable welsoft TV blanket and throw collections designed for everyday use, retail, wholesale and private-label production.",
+    features: [
+      "Soft Welsoft Fabric",
+      "Warm & Comfortable",
+      "Lightweight Design",
+      "Easy Care",
+      "Custom Size Production",
+      "Wholesale & Private Label",
+    ],
+  },
+
 ];

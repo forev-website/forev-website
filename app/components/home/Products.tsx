@@ -3,38 +3,120 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import {
+  ArrowRight,
+  Package,
+  Tags,
+  Factory,
+} from "lucide-react";
 
 const products = [
   {
     id: "welsoft",
-    title: "Welsoft Yorgan",
-    description: "4 Mevsim Premium Üretim",
+    title: "Welsoft Quilts",
+    description:
+      "Soft, comfortable and high-volume quilt collections designed for European markets.",
     image: "/images/welsoft/welsoft.png",
   },
+
   {
     id: "pike",
-    title: "Pike Takımı",
-    description: "Tek ve Çift Kişilik",
+    title: "Bedspreads & Pique",
+    description:
+      "Modern bedspread and pique collections available in different sizes, colors and designs.",
     image: "/images/pike/pike.png",
   },
+
+  {
+    id: "towels",
+    title: "Towels",
+    description:
+      "Premium towel collections including hand towel sets, hammam sets and bath towels.",
+    image: "/images/towels/towels.png",
+  },
+
+  {
+    id: "bornoz",
+    title: "Bathrobes",
+    description:
+      "Comfortable and high-quality bathrobe collections suitable for retail, wholesale and hospitality businesses.",
+    image: "/images/bornoz/bornoz.png",
+  },
+
   {
     id: "alez",
-    title: "Alez",
-    description: "Sıvı Geçirmez Koruma",
+    title: "Mattress Protectors",
+    description:
+      "Practical mattress protection products suitable for retail and e-commerce sales.",
     image: "/images/alez/alez.png",
   },
+
+  {
+    id: "kids-bathrobes",
+    title: "Kids Bathrobes",
+    description:
+      "Soft and comfortable kids bathrobe collections available in different age groups.",
+    image: "/images/kids-bathrobes/kids-bathrobes.png",
+  },
+
+  {
+    id: "dish-cloths",
+    title: "Dish Cloths",
+    description:
+      "Practical and high-quality dish cloth collections designed for everyday kitchen use, wholesale and retail markets.",
+    image: "/images/dish-cloths/dish-cloths.png",
+  },
+
+  {
+    id: "kitchen-towels",
+    title: "Kitchen Towels",
+    description:
+      "High-quality kitchen towel collections designed for everyday use, retail, wholesale and private-label production.",
+    image: "/images/kitchen-towels/kitchen-towels.png",
+  },
+
   {
     id: "bebek",
-    title: "Bebek Tekstili",
-    description: "Uyku Setleri",
+    title: "Baby Textile",
+    description:
+      "Soft and carefully produced baby textile collections for retailers and private labels.",
     image: "/images/bebek/bebek.png",
   },
+
+  {
+    id: "bath-mats",
+    title: "Bath Mats",
+    description:
+      "Premium bath mat collections designed for comfort, absorbency and everyday bathroom use.",
+    image: "/images/bath-mats/bath-mats.png",
+  },
+
+  {
+    id: "welsoft-bathrobes",
+    title: "Welsoft Dressing Gowns",
+    description:
+      "Soft and comfortable welsoft dressing gown collections designed for retail, wholesale and private-label production.",
+    image: "/images/welsoft-bathrobes/welsoft-bathrobes.png",
+  },
+
   {
     id: "otel",
-    title: "Otel Tekstili",
-    description: "Profesyonel Üretim",
+    title: "Hotel Textile",
+    description:
+      "Professional textile solutions manufactured for hotels and hospitality businesses.",
     image: "/images/otel/otel.png",
+  },
+
+  // ==================================================
+  // WELSOFT TV BLANKETS & THROWS
+  // ==================================================
+
+  {
+    id: "tv-blankets",
+    title: "Welsoft TV Blankets & Throws",
+    description:
+      "Soft and comfortable welsoft TV blanket and throw collections designed for everyday use, retail, wholesale and private-label production.",
+    image: "/images/tv-blankets/tv-blankets.png",
   },
 ];
 
@@ -42,85 +124,187 @@ export default function Products() {
   return (
     <section
       id="products"
-      className="bg-gradient-to-b from-white to-slate-50 py-28"
+      className="relative overflow-hidden bg-white py-28"
     >
-      <div className="mx-auto max-w-7xl px-6">
+      <div className="absolute -left-40 top-20 h-96 w-96 rounded-full bg-blue-50 blur-[140px]" />
 
-        <div className="text-center">
+      <div className="absolute -right-40 bottom-0 h-96 w-96 rounded-full bg-slate-100 blur-[140px]" />
 
-          <span className="rounded-full bg-blue-100 px-4 py-2 text-sm font-semibold text-[#153B63]">
-            ÜRÜN GRUPLARIMIZ
+      <div className="relative mx-auto max-w-7xl px-6">
+
+        {/* HEADER */}
+
+        <motion.div
+          initial={{
+            opacity: 0,
+            y: 25,
+          }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+          }}
+          viewport={{
+            once: true,
+          }}
+          transition={{
+            duration: 0.7,
+          }}
+          className="mx-auto max-w-3xl text-center"
+        >
+          <span className="inline-flex rounded-full bg-[#153B63]/10 px-4 py-2 text-sm font-bold tracking-[0.2em] text-[#153B63]">
+            PRODUCT CATALOG
           </span>
 
-          <h2 className="mt-6 text-5xl font-bold text-slate-900">
-            Ürün Grupları
+          <h2 className="mt-6 text-4xl font-black leading-tight text-slate-900 md:text-5xl">
+            Home Textile
+            <span className="text-[#153B63]">
+              {" "}
+              Collections
+            </span>
           </h2>
 
-          <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-slate-500">
-            Forev Tekstil olarak ev tekstili sektörüne yönelik
-            birçok farklı kategoride profesyonel üretim yapıyoruz.
+          <p className="mt-6 text-lg leading-8 text-slate-600">
+            Explore our core product groups manufactured for wholesalers,
+            retailers, e-commerce sellers and private-label brands.
           </p>
+        </motion.div>
 
-        </div>
+        {/* PRODUCT CARDS */}
 
-        <div className="mt-20 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-16 grid gap-7 md:grid-cols-2 lg:grid-cols-3">
 
-          {products.map((product, index) => (
+          {products.map(
+            (product, index) => (
+              <motion.div
+                key={product.id}
+                initial={{
+                  opacity: 0,
+                  y: 35,
+                }}
+                whileInView={{
+                  opacity: 1,
+                  y: 0,
+                }}
+                viewport={{
+                  once: true,
+                }}
+                transition={{
+                  duration: 0.6,
+                  delay: index * 0.08,
+                }}
+                className="group overflow-hidden rounded-[30px] border border-slate-200 bg-white shadow-sm transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl"
+              >
 
-            <motion.div
-              key={product.id}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.08 }}
-              viewport={{ once: true }}
-              className="group overflow-hidden rounded-[30px] border bg-white shadow-lg transition duration-500 hover:-translate-y-3 hover:shadow-2xl"
-            >
+                {/* IMAGE */}
 
-              <div className="overflow-hidden">
+                <div className="relative overflow-hidden bg-slate-100">
 
-                <Image
-                  src={product.image}
-                  alt={product.title}
-                  width={700}
-                  height={500}
-                  className="h-72 w-full object-cover transition duration-700 group-hover:scale-110"
-                />
+                  <Image
+                    src={product.image}
+                    alt={product.title}
+                    width={800}
+                    height={800}
+                    className="aspect-square w-full object-cover transition duration-700 group-hover:scale-105"
+                  />
 
-              </div>
+                  <div className="absolute left-5 top-5 rounded-full bg-white/95 px-4 py-2 text-xs font-bold uppercase tracking-wider text-[#153B63] shadow-sm">
+                    FOREV
+                  </div>
 
-              <div className="p-8">
+                </div>
 
-                <p className="text-sm font-semibold uppercase tracking-widest text-[#153B63]">
-                  FOREV
-                </p>
+                {/* CONTENT */}
 
-                <h3 className="mt-3 text-3xl font-bold">
-                  {product.title}
-                </h3>
+                <div className="p-7">
 
-                <p className="mt-4 text-slate-500">
-                  {product.description}
-                </p>
+                  <h3 className="text-2xl font-bold text-slate-900">
+                    {product.title}
+                  </h3>
 
-                <Link href={`/products/${product.id}`}>
+                  <p className="mt-3 min-h-[72px] leading-7 text-slate-600">
+                    {product.description}
+                  </p>
 
-                  <button className="mt-8 flex items-center gap-2 rounded-full bg-[#153B63] px-6 py-3 font-semibold text-white transition hover:bg-[#0F2F4F]">
+                  <div className="mt-6 flex flex-wrap gap-2">
 
-                    Detayları Gör
+                    <span className="inline-flex items-center gap-1.5 rounded-full bg-slate-100 px-3 py-1.5 text-xs font-semibold text-slate-600">
+                      <Factory size={13} />
+                      Wholesale
+                    </span>
 
+                    <span className="inline-flex items-center gap-1.5 rounded-full bg-slate-100 px-3 py-1.5 text-xs font-semibold text-slate-600">
+                      <Tags size={13} />
+                      Private Label
+                    </span>
+
+                  </div>
+
+                  <Link
+                    href={`/products/${product.id}`}
+                    className="mt-7 inline-flex items-center gap-2 font-semibold text-[#153B63] transition hover:gap-3"
+                  >
+                    View Product
                     <ArrowRight size={18} />
+                  </Link>
 
-                  </button>
+                </div>
 
-                </Link>
-
-              </div>
-
-            </motion.div>
-
-          ))}
+              </motion.div>
+            )
+          )}
 
         </div>
+
+        {/* BOTTOM CTA */}
+
+        <motion.div
+          initial={{
+            opacity: 0,
+            y: 25,
+          }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+          }}
+          viewport={{
+            once: true,
+          }}
+          transition={{
+            duration: 0.7,
+          }}
+          className="mt-16 rounded-[32px] border border-slate-200 bg-slate-50 p-8 md:flex md:items-center md:justify-between md:p-10"
+        >
+
+          <div className="flex items-start gap-5">
+
+            <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-[#153B63] text-white">
+              <Package size={26} />
+            </div>
+
+            <div>
+
+              <h3 className="text-2xl font-bold text-slate-900">
+                Looking for a specific product?
+              </h3>
+
+              <p className="mt-2 max-w-2xl leading-7 text-slate-600">
+                Explore our product collections and contact us directly
+                for wholesale inquiries and product information.
+              </p>
+
+            </div>
+
+          </div>
+
+          <Link
+            href="#contact"
+            className="mt-6 inline-flex shrink-0 items-center justify-center gap-2 rounded-full bg-[#153B63] px-7 py-4 font-semibold text-white transition hover:bg-[#0F2F4F] md:mt-0"
+          >
+            Contact Us
+            <ArrowRight size={18} />
+          </Link>
+
+        </motion.div>
 
       </div>
     </section>
