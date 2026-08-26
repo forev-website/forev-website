@@ -14,7 +14,7 @@ export default function Hero() {
         className="absolute inset-0 h-full w-full object-cover object-center"
       />
 
-      {/* TEK OVERLAY */}
+      {/* OVERLAY */}
       <div className="absolute inset-0 bg-black/25" />
 
       {/* YAZI */}
@@ -22,10 +22,12 @@ export default function Hero() {
 
         <div className="max-w-3xl text-white">
 
+          {/* ÜST BAŞLIK */}
           <p className="mb-5 text-sm font-semibold uppercase tracking-[0.3em]">
             Turkish Home Textile Manufacturer
           </p>
 
+          {/* ANA BAŞLIK */}
           <h1 className="text-5xl font-bold leading-tight md:text-7xl">
             Your Trusted Textile
             <span className="block">
@@ -33,10 +35,20 @@ export default function Hero() {
             </span>
           </h1>
 
+          {/* AÇIKLAMA */}
           <p className="mt-6 max-w-2xl text-lg leading-8 text-white/90">
             Premium home textile manufacturing from Turkey for wholesalers,
             retailers, e-commerce sellers and private-label brands worldwide.
           </p>
+
+          {/* ÜRÜN GRUPLARI BUTONU */}
+          <a
+            href="#products"
+            className="mt-8 inline-flex items-center gap-3 rounded-full bg-[#153B63] px-7 py-4 text-sm font-bold uppercase tracking-wide text-white shadow-lg transition hover:bg-[#0F2F4F] hover:gap-4"
+          >
+            Ürün Gruplarımız
+            <span className="text-lg">→</span>
+          </a>
 
         </div>
 
