@@ -41,12 +41,12 @@ export default function Hero() {
             retailers, e-commerce sellers and private-label brands worldwide.
           </p>
 
-          {/* ÜRÜN GRUPLARI BUTONU */}
+          {/* ÜRÜN BUTONU */}
           <a
             href="#products"
             className="mt-8 inline-flex items-center gap-3 rounded-full bg-[#153B63] px-7 py-4 text-sm font-bold uppercase tracking-wide text-white shadow-lg transition hover:bg-[#0F2F4F] hover:gap-4"
           >
-            Ürün Gruplarımız
+            Explore Our Products
             <span className="text-lg">→</span>
           </a>
 
