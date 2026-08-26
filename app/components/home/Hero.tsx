@@ -2,7 +2,10 @@
 
 export default function Hero() {
   return (
-    <section className="relative min-h-[720px] overflow-hidden">
+    <section
+      className="relative min-h-[720px] overflow-hidden"
+      data-section="hero"
+    >
 
       {/* TEK GÖRSEL */}
       <img
