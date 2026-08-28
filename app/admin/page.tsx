@@ -15,19 +15,23 @@ import {
 import { supabase } from "@/lib/supabase";
 
 const productCategories = [
-  { slug: "welsoft", name: "Welsoft Quilts" },
-  { slug: "pike", name: "Bedspreads & Pique" },
-  { slug: "towels", name: "Towels" },
-  { slug: "bornoz", name: "Bathrobes" },
-  { slug: "alez", name: "Mattress Protectors" },
-  { slug: "kids-bathrobes", name: "Kids Bathrobes" },
-  { slug: "dish-cloths", name: "Dish Cloths" },
-  { slug: "kitchen-towels", name: "Kitchen Towels" },
-  { slug: "bebek", name: "Baby Textile" },
-  { slug: "bath-mats", name: "Bath Mats" },
-  { slug: "welsoft-bathrobes", name: "Welsoft Dressing Gowns" },
-  { slug: "otel", name: "Hotel Textile" },
-  { slug: "tv-blankets", name: "Welsoft TV Blankets & Throws" },
+  { slug: "welsoft", name: "Welsoft Quilts", image: "/images/welsoft/welsoft.png" },
+  { slug: "pike", name: "Bedspreads & Pique", image: "/images/pike/pike.png" },
+  { slug: "towels", name: "Towels", image: "/images/towels/towels.png" },
+  { slug: "bornoz", name: "Bathrobes", image: "/images/bornoz/bornoz.png" },
+  { slug: "alez", name: "Mattress Protectors", image: "/images/alez/alez.png" },
+  { slug: "kids-bathrobes", name: "Kids Bathrobes", image: "/images/kids-bathrobes/kids-bathrobes.png" },
+  { slug: "dish-cloths", name: "Dish Cloths", image: "/images/dish-cloths/dish-cloths.png" },
+  { slug: "kitchen-towels", name: "Kitchen Towels", image: "/images/kitchen-towels/kitchen-towels.png" },
+  { slug: "bebek", name: "Baby Textile", image: "/images/bebek/bebek.png" },
+  { slug: "bath-mats", name: "Bath Mats", image: "/images/bath-mats/bath-mats.png" },
+  { slug: "welsoft-bathrobes", name: "Welsoft Dressing Gowns", image: "/images/welsoft-bathrobes/welsoft-bathrobes.png" },
+  { slug: "otel", name: "Hotel Textile", image: "/images/otel/otel.png" },
+  { slug: "tv-blankets", name: "Welsoft TV Blankets & Throws", image: "/images/tv-blankets/tv-blankets.png" },
+
+  // NEW PRODUCT
+  { slug: "satin", name: "Satin Duvet Cover", image: "/images/satin/satin.png" },
+  { slug: "fitted-sheet-set", name: "Fitted Sheet Set", image: "/images/fitted-sheet-set/fitted-sheet-set.png" },
 ];
 
 type DesignImage = {
@@ -70,7 +74,6 @@ async function compressImage(file: File): Promise<File> {
   const QUALITY = 0.85;
 
   const image = new Image();
-
   const objectUrl = URL.createObjectURL(file);
 
   try {
@@ -88,7 +91,6 @@ async function compressImage(file: File): Promise<File> {
     let width = image.naturalWidth;
     let height = image.naturalHeight;
 
-    // Görsel 2000px'den büyükse küçült
     if (
       width > MAX_SIZE ||
       height > MAX_SIZE
@@ -203,11 +205,17 @@ export default function AdminPage() {
   const [errorMessage, setErrorMessage] =
     useState("");
 
-  const selectedProductName =
+  const selectedProductData =
     productCategories.find(
       (product) =>
         product.slug === selectedProduct
-    )?.name ?? "";
+    );
+
+  const selectedProductName =
+    selectedProductData?.name ?? "";
+
+  const selectedProductImage =
+    selectedProductData?.image ?? "";
 
   // --------------------------------------------------
   // TASARIMLARI GETİR
@@ -295,8 +303,7 @@ export default function AdminPage() {
         );
       }
 
-      const combinedDesigns:
-        Design[] =
+      const combinedDesigns: Design[] =
         designData.map(
           (design) => ({
             id: design.id,
@@ -305,8 +312,7 @@ export default function AdminPage() {
             name: design.name,
             slug: design.slug,
             description:
-              design.description ??
-              "",
+              design.description ?? "",
             images:
               imageData?.filter(
                 (image) =>
@@ -348,8 +354,9 @@ export default function AdminPage() {
   function handleGalleryChange(
     event: React.ChangeEvent<HTMLInputElement>
   ) {
-    if (!event.target.files)
+    if (!event.target.files) {
       return;
+    }
 
     setGalleryImages(
       Array.from(
@@ -416,7 +423,9 @@ export default function AdminPage() {
   // --------------------------------------------------
 
   function closeForm() {
-    if (saving) return;
+    if (saving) {
+      return;
+    }
 
     setShowForm(false);
     setEditingDesign(null);
@@ -433,12 +442,15 @@ export default function AdminPage() {
   // --------------------------------------------------
 
   async function handleSave() {
-    if (saving) return;
+    if (saving) {
+      return;
+    }
 
     if (!designName.trim()) {
       alert(
         "Please enter a design name."
       );
+
       return;
     }
 
@@ -1116,15 +1128,18 @@ export default function AdminPage() {
   async function handleDelete(
     design: Design
   ) {
-    if (saving) return;
+    if (saving) {
+      return;
+    }
 
     const confirmed =
       window.confirm(
         `Are you sure you want to delete "${design.name}"?`
       );
 
-    if (!confirmed)
+    if (!confirmed) {
       return;
+    }
 
     setSaving(true);
 
@@ -1345,7 +1360,28 @@ export default function AdminPage() {
 
           <div className="flex flex-col justify-between gap-5 md:flex-row md:items-center">
 
-            <div>
+            <div className="flex items-center gap-5">
+
+              <div className="h-24 w-24 shrink-0 overflow-hidden rounded-2xl border border-slate-200 bg-slate-100">
+                {selectedProductImage ? (
+                  <img
+                    key={selectedProductImage}
+                    src={selectedProductImage}
+                    alt={selectedProductName}
+                    loading="eager"
+                    className="block h-full w-full object-cover"
+                    onError={(event) => {
+                      event.currentTarget.style.display = "none";
+                    }}
+                  />
+                ) : (
+                  <div className="flex h-full w-full items-center justify-center text-xs font-semibold text-slate-400">
+                    No image
+                  </div>
+                )}
+              </div>
+
+              <div>
               <span className="text-sm font-semibold uppercase tracking-wider text-[#153B63]">
                 Selected Collection
               </span>
@@ -1359,6 +1395,7 @@ export default function AdminPage() {
               <p className="mt-2 text-slate-500">
                 Add colors, designs and gallery images.
               </p>
+              </div>
             </div>
 
             <button

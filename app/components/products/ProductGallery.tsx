@@ -1,21 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Image from "next/image";
-
-type DesignImage = {
-  id: string;
-  image_url: string;
-  is_main: boolean;
-  sort_order: number;
-};
-
-type Design = {
-  id: string;
-  name: string;
-  slug: string;
-  images: DesignImage[];
-};
 
 type Props = {
   images: string[];
@@ -57,18 +42,18 @@ export default function ProductGallery({
 
   return (
     <div>
+
       {/* MAIN PRODUCT IMAGE */}
 
       <div className="overflow-hidden rounded-[30px] border border-slate-200 bg-slate-50 shadow-xl">
         <div className="aspect-square w-full">
-          <Image
+
+          <img
             src={images[selected]}
             alt={title}
-            width={1200}
-            height={1200}
-            priority
             className="h-full w-full object-cover transition duration-300"
           />
+
         </div>
       </div>
 
@@ -88,16 +73,17 @@ export default function ProductGallery({
                 : "border-slate-200 hover:border-[#153B63]"
             }`}
           >
-            <Image
+
+            <img
               src={image}
               alt={`${title} image ${index + 1}`}
-              width={300}
-              height={300}
               className="h-full w-full object-cover"
             />
+
           </button>
         ))}
       </div>
+
     </div>
   );
 }

@@ -12,6 +12,14 @@ import {
 
 const products = [
   {
+    id: "fitted-sheet-set",
+    title: "Satin Fitted Sheet Set",
+    description:
+      "High-quality fitted sheet set collections designed for retail, wholesale and private-label production.",
+    image: "/images/fitted-sheet-set/fitted-sheet-set.png",
+  },
+
+  {
     id: "welsoft",
     title: "Welsoft Quilts",
     description:
@@ -41,6 +49,14 @@ const products = [
     description:
       "Comfortable and high-quality bathrobe collections suitable for retail, wholesale and hospitality businesses.",
     image: "/images/bornoz/bornoz.png",
+  },
+
+  {
+    id: "satin",
+    title: "Satin Duvet Cover",
+    description:
+      "Elegant and smooth satin duvet cover collections designed for premium home textile, wholesale and private-label production.",
+    image: "/images/satin/satin.png",
   },
 
   {
@@ -107,10 +123,6 @@ const products = [
     image: "/images/otel/otel.png",
   },
 
-  // ==================================================
-  // WELSOFT TV BLANKETS & THROWS
-  // ==================================================
-
   {
     id: "tv-blankets",
     title: "Welsoft TV Blankets & Throws",
@@ -126,6 +138,8 @@ export default function Products() {
       id="products"
       className="relative overflow-hidden bg-white py-28"
     >
+      {/* BACKGROUND */}
+
       <div className="absolute -left-40 top-20 h-96 w-96 rounded-full bg-blue-50 blur-[140px]" />
 
       <div className="absolute -right-40 bottom-0 h-96 w-96 rounded-full bg-slate-100 blur-[140px]" />
@@ -173,85 +187,99 @@ export default function Products() {
 
         <div className="mt-16 grid gap-7 md:grid-cols-2 lg:grid-cols-3">
 
-          {products.map(
-            (product, index) => (
-              <motion.div
-                key={product.id}
-                initial={{
-                  opacity: 0,
-                  y: 35,
-                }}
-                whileInView={{
-                  opacity: 1,
-                  y: 0,
-                }}
-                viewport={{
-                  once: true,
-                }}
-                transition={{
-                  duration: 0.6,
-                  delay: index * 0.08,
-                }}
-                className="group overflow-hidden rounded-[30px] border border-slate-200 bg-white shadow-sm transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl"
-              >
+          {products.map((product, index) => (
+            <motion.div
+              key={product.id}
+              initial={{
+                opacity: 0,
+                y: 35,
+              }}
+              whileInView={{
+                opacity: 1,
+                y: 0,
+              }}
+              viewport={{
+                once: true,
+              }}
+              transition={{
+                duration: 0.6,
+                delay: index * 0.08,
+              }}
+              className="group overflow-hidden rounded-[30px] border border-slate-200 bg-white shadow-sm transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl"
+            >
 
-                {/* IMAGE */}
+              {/* IMAGE */}
 
-                <div className="relative overflow-hidden bg-slate-100">
+              <div className="relative aspect-square overflow-hidden bg-slate-100">
+
+                {product.id === "satin" || product.id === "fitted-sheet-set" ? (
+
+                  <img
+                    src={product.image}
+                    alt={product.title}
+                    className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
+                  />
+
+                ) : (
 
                   <Image
                     src={product.image}
                     alt={product.title}
-                    width={800}
-                    height={800}
-                    className="aspect-square w-full object-cover transition duration-700 group-hover:scale-105"
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    className="object-cover transition duration-700 group-hover:scale-105"
                   />
 
-                  <div className="absolute left-5 top-5 rounded-full bg-white/95 px-4 py-2 text-xs font-bold uppercase tracking-wider text-[#153B63] shadow-sm">
-                    FOREV
-                  </div>
+                )}
+
+                <div className="absolute left-5 top-5 rounded-full bg-white/95 px-4 py-2 text-xs font-bold uppercase tracking-wider text-[#153B63] shadow-sm">
+                  FOREV
+                </div>
+
+              </div>
+
+              {/* CONTENT */}
+
+              <div className="p-7">
+
+                <h3 className="text-2xl font-bold text-slate-900">
+                  {product.title}
+                </h3>
+
+                <p className="mt-3 min-h-[72px] leading-7 text-slate-600">
+                  {product.description}
+                </p>
+
+                {/* TAGS */}
+
+                <div className="mt-6 flex flex-wrap gap-2">
+
+                  <span className="inline-flex items-center gap-1.5 rounded-full bg-slate-100 px-3 py-1.5 text-xs font-semibold text-slate-600">
+                    <Factory size={13} />
+                    Wholesale
+                  </span>
+
+                  <span className="inline-flex items-center gap-1.5 rounded-full bg-slate-100 px-3 py-1.5 text-xs font-semibold text-slate-600">
+                    <Tags size={13} />
+                    Private Label
+                  </span>
 
                 </div>
 
-                {/* CONTENT */}
+                {/* LINK */}
 
-                <div className="p-7">
+                <Link
+                  href={`/products/${product.id}`}
+                  className="mt-7 inline-flex items-center gap-2 font-semibold text-[#153B63] transition hover:gap-3"
+                >
+                  View Product
+                  <ArrowRight size={18} />
+                </Link>
 
-                  <h3 className="text-2xl font-bold text-slate-900">
-                    {product.title}
-                  </h3>
+              </div>
 
-                  <p className="mt-3 min-h-[72px] leading-7 text-slate-600">
-                    {product.description}
-                  </p>
-
-                  <div className="mt-6 flex flex-wrap gap-2">
-
-                    <span className="inline-flex items-center gap-1.5 rounded-full bg-slate-100 px-3 py-1.5 text-xs font-semibold text-slate-600">
-                      <Factory size={13} />
-                      Wholesale
-                    </span>
-
-                    <span className="inline-flex items-center gap-1.5 rounded-full bg-slate-100 px-3 py-1.5 text-xs font-semibold text-slate-600">
-                      <Tags size={13} />
-                      Private Label
-                    </span>
-
-                  </div>
-
-                  <Link
-                    href={`/products/${product.id}`}
-                    className="mt-7 inline-flex items-center gap-2 font-semibold text-[#153B63] transition hover:gap-3"
-                  >
-                    View Product
-                    <ArrowRight size={18} />
-                  </Link>
-
-                </div>
-
-              </motion.div>
-            )
-          )}
+            </motion.div>
+          ))}
 
         </div>
 
