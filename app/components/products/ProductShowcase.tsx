@@ -143,9 +143,11 @@ export default function ProductShowcase({
 
         {/* ==================================================
             SOL - ÜRÜN BİLGİLERİ
+            MOBİLDE 3. SIRA
+            MASAÜSTÜNDE 1. SIRA
         ================================================== */}
 
-        <div className="order-2 xl:order-1">
+        <div className="order-3 xl:order-1">
 
           <span className="inline-flex rounded-full bg-[#153B63]/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.18em] text-[#153B63]">
             FOREV COLLECTION
@@ -255,6 +257,8 @@ export default function ProductShowcase({
 
         {/* ==================================================
             ORTA - BÜYÜK ÜRÜN GALERİSİ
+            MOBİLDE 1. SIRA
+            MASAÜSTÜNDE 2. SIRA
         ================================================== */}
 
         <div className="order-1 xl:order-2">
@@ -271,10 +275,12 @@ export default function ProductShowcase({
         </div>
 
         {/* ==================================================
-            SAĞ - DESENLER
+            SAĞ - DESENLER / VARYANTLAR
+            MOBİLDE 2. SIRA
+            MASAÜSTÜNDE 3. SIRA
         ================================================== */}
 
-        <div className="order-3">
+        <div className="order-2 xl:order-3">
 
           <span className="inline-flex rounded-full bg-blue-100 px-4 py-2 text-xs font-bold uppercase tracking-[0.18em] text-[#153B63]">
             AVAILABLE DESIGNS
