@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import Link from "next/link";
+import { useRouter } from "next/navigation";
 import Image from "next/image";
 import {
   CheckCircle,
@@ -44,6 +44,8 @@ export default function ProductShowcase({
   product,
   designs,
 }: Props) {
+  const router = useRouter();
+
   const [selectedDesignId, setSelectedDesignId] =
     useState<string | null>(
       designs.length > 0
@@ -134,6 +136,34 @@ export default function ProductShowcase({
 
   return (
     <div>
+
+      {/* ==================================================
+          BACK TO CATALOG
+      ================================================== */}
+
+      <div className="mb-8">
+
+        <button
+          type="button"
+          onClick={() => router.back()}
+          className="group inline-flex items-center gap-3 rounded-full border border-slate-200 bg-white px-5 py-3 text-[13px] font-semibold tracking-wide text-slate-600 shadow-sm transition-all duration-300 hover:-translate-x-1 hover:border-[#153B63]/30 hover:bg-[#153B63] hover:text-white hover:shadow-md"
+        >
+
+          <span className="flex h-8 w-8 items-center justify-center rounded-full bg-slate-100 transition-all duration-300 group-hover:bg-white/15">
+
+            <span className="text-xl leading-none transition-transform duration-300 group-hover:-translate-x-1">
+              ←
+            </span>
+
+          </span>
+
+          <span>
+            Back to Catalog
+          </span>
+
+        </button>
+
+      </div>
 
       {/* ==================================================
           ÜST ANA ALAN
@@ -228,15 +258,18 @@ export default function ProductShowcase({
 
           <div className="mt-6 space-y-3">
 
-            <Link
+            <a
               href="/#contact"
               className="flex w-full items-center justify-center gap-2 rounded-full bg-[#153B63] px-6 py-4 text-sm font-bold text-white transition hover:bg-[#0F2F4F] hover:shadow-lg"
             >
+
               Request a Quote
+
               <ArrowRight
                 size={18}
               />
-            </Link>
+
+            </a>
 
             <a
               href="https://wa.me/905050879999"
@@ -244,11 +277,13 @@ export default function ProductShowcase({
               rel="noopener noreferrer"
               className="flex w-full items-center justify-center gap-2 rounded-full border border-slate-300 bg-white px-6 py-4 text-sm font-bold text-slate-700 transition hover:border-[#153B63] hover:text-[#153B63]"
             >
+
               <MessageCircle
                 size={18}
               />
 
               Contact via WhatsApp
+
             </a>
 
           </div>
