@@ -210,33 +210,40 @@ export default function Products() {
 
               {/* IMAGE */}
 
-              <div className="relative aspect-square overflow-hidden bg-slate-100">
+              <Link
+                href={`/products/${product.id}`}
+                className="block"
+                aria-label={`View ${product.title}`}
+              >
+                <div className="relative aspect-square overflow-hidden bg-slate-100">
 
-                {product.id === "satin" || product.id === "fitted-sheet-set" ? (
+                  {product.id === "satin" ||
+                  product.id === "fitted-sheet-set" ? (
 
-                  <img
-                    src={product.image}
-                    alt={product.title}
-                    className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
-                  />
+                    <img
+                      src={product.image}
+                      alt={product.title}
+                      className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
+                    />
 
-                ) : (
+                  ) : (
 
-                  <Image
-                    src={product.image}
-                    alt={product.title}
-                    fill
-                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                    className="object-cover transition duration-700 group-hover:scale-105"
-                  />
+                    <Image
+                      src={product.image}
+                      alt={product.title}
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      className="object-cover transition duration-700 group-hover:scale-105"
+                    />
 
-                )}
+                  )}
 
-                <div className="absolute left-5 top-5 rounded-full bg-white/95 px-4 py-2 text-xs font-bold uppercase tracking-wider text-[#153B63] shadow-sm">
-                  FOREV
+                  <div className="absolute left-5 top-5 rounded-full bg-white/95 px-4 py-2 text-xs font-bold uppercase tracking-wider text-[#153B63] shadow-sm">
+                    FOREV
+                  </div>
+
                 </div>
-
-              </div>
+              </Link>
 
               {/* CONTENT */}
 
