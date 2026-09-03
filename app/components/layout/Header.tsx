@@ -20,6 +20,10 @@ const menu = [
     href: "/#products",
   },
   {
+    title: "Product Videos",
+    href: "/#product-videos",
+  },
+  {
     title: "About Us",
     href: "/#about",
   },

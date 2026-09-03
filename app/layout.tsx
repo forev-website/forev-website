@@ -3,6 +3,7 @@ import { Manrope, Geist } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 import { cn } from "@/lib/utils";
+import Header from "@/app/components/layout/Header";
 
 const geist = Geist({
   subsets: ["latin"],
@@ -25,8 +26,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="tr" className={cn("font-sans", geist.variable)}>
+    <html
+      lang="tr"
+      className={cn("font-sans", geist.variable)}
+    >
       <body className={manrope.className}>
+        <Header />
+
         {children}
 
         {/* Google Analytics */}
@@ -35,7 +41,10 @@ export default function RootLayout({
           strategy="afterInteractive"
         />
 
-        <Script id="google-analytics" strategy="afterInteractive">
+        <Script
+          id="google-analytics"
+          strategy="afterInteractive"
+        >
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){window.dataLayer.push(arguments);}

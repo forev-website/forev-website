@@ -29,10 +29,6 @@ export default async function ProductPage({
 }: Props) {
   const { slug } = await params;
 
-  // --------------------------------------------------
-  // PRODUCT DATA
-  // --------------------------------------------------
-
   const product = productData.find(
     (item) => item.slug === slug
   );
@@ -40,10 +36,6 @@ export default async function ProductPage({
   if (!product) {
     notFound();
   }
-
-  // --------------------------------------------------
-  // SUPABASE PRODUCT
-  // --------------------------------------------------
 
   let supabaseDesigns: SupabaseDesign[] = [];
 
@@ -56,33 +48,19 @@ export default async function ProductPage({
         .maybeSingle();
 
     if (supabaseProduct) {
-
-      // ------------------------------------------------
-      // DESIGNS
-      // ------------------------------------------------
-
       const { data: designs } =
         await supabase
           .from("designs")
           .select("id, name, slug")
-          .eq(
-            "product_id",
-            supabaseProduct.id
-          )
+          .eq("product_id", supabaseProduct.id)
           .order("created_at", {
             ascending: true,
           });
 
       if (designs && designs.length > 0) {
-
-        const designIds =
-          designs.map(
-            (design) => design.id
-          );
-
-        // ------------------------------------------------
-        // DESIGN IMAGES
-        // ------------------------------------------------
+        const designIds = designs.map(
+          (design) => design.id
+        );
 
         const { data: images } =
           await supabase
@@ -90,63 +68,42 @@ export default async function ProductPage({
             .select(
               "id, design_id, image_url, is_main, sort_order"
             )
-            .in(
-              "design_id",
-              designIds
-            )
+            .in("design_id", designIds)
             .order("sort_order", {
               ascending: true,
             });
 
-        // ------------------------------------------------
-        // DESIGNS + IMAGES BİRLEŞTİR
-        // ------------------------------------------------
-
-        supabaseDesigns =
-          designs.map((design) => ({
+        supabaseDesigns = designs.map(
+          (design) => ({
             id: design.id,
             name: design.name,
             slug: design.slug,
-
             images:
               images?.filter(
                 (image) =>
-                  image.design_id ===
-                  design.id
+                  image.design_id === design.id
               ) ?? [],
-          }));
+          })
+        );
       }
     }
-
   } catch (error) {
-
     console.error(
       "SUPABASE PRODUCT ERROR:",
       error
     );
-
   }
 
-  // --------------------------------------------------
-  // PRODUCT SHOWCASE
-  // --------------------------------------------------
-
   return (
-    <main className="min-h-screen bg-white">
-
+    <main className="min-h-screen bg-white pt-24">
       <section className="py-20 md:py-24">
-
         <div className="mx-auto max-w-7xl px-6">
-
           <ProductShowcase
             product={product}
             designs={supabaseDesigns}
           />
-
         </div>
-
       </section>
-
     </main>
   );
 }

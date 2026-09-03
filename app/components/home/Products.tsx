@@ -53,9 +53,9 @@ const products = [
 
   {
     id: "satin",
-    title: "Satin Duvet Cover",
+    title: "Satin",
     description:
-      "Elegant and smooth satin duvet cover collections designed for premium home textile, wholesale and private-label production.",
+      "Elegant and smooth satin collections designed for premium home textile, wholesale and private-label production.",
     image: "/images/satin/satin.png",
   },
 
@@ -181,6 +181,26 @@ export default function Products() {
             Explore our core product groups manufactured for wholesalers,
             retailers, e-commerce sellers and private-label brands.
           </p>
+
+          {/* CATALOG TABS */}
+
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+
+            <a
+              href="#products"
+              className="inline-flex items-center justify-center rounded-full bg-[#153B63] px-6 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-[#0F2F4F]"
+            >
+              Product Catalog
+            </a>
+
+            <a
+              href="#product-videos"
+              className="inline-flex items-center justify-center rounded-full border border-[#153B63]/20 bg-white px-6 py-3 text-sm font-semibold text-[#153B63] shadow-sm transition hover:bg-[#153B63]/5"
+            >
+              Our Product Videos
+            </a>
+
+          </div>
         </motion.div>
 
         {/* PRODUCT CARDS */}
@@ -289,6 +309,220 @@ export default function Products() {
           ))}
 
         </div>
+
+        {/* PRODUCT VIDEOS */}
+
+        <motion.div
+          id="product-videos"
+          initial={{
+            opacity: 0,
+            y: 25,
+          }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+          }}
+          viewport={{
+            once: true,
+          }}
+          transition={{
+            duration: 0.7,
+          }}
+          className="mt-24"
+        >
+
+          {/* VIDEO HEADER */}
+
+          <div className="mx-auto max-w-3xl text-center">
+
+            <span className="inline-flex rounded-full bg-[#153B63]/10 px-4 py-2 text-sm font-bold tracking-[0.2em] text-[#153B63]">
+              OUR PRODUCT VIDEOS
+            </span>
+
+            <h2 className="mt-6 text-3xl font-black text-slate-900 md:text-4xl">
+              See Our Products in Detail
+            </h2>
+
+            <p className="mt-4 text-lg leading-8 text-slate-600">
+              Take a closer look at some of our home textile collections.
+            </p>
+
+          </div>
+
+          {/* MAIN PRODUCT VIDEOS */}
+
+          <div className="mt-12 grid gap-7 md:grid-cols-2 lg:grid-cols-3">
+
+            {/* SATIN */}
+
+            <div className="overflow-hidden rounded-[30px] border border-slate-200 bg-white shadow-sm">
+
+              <video
+                controls
+                preload="metadata"
+                className="aspect-video w-full object-cover"
+              >
+                <source
+                  src="/videos/satin.mp4"
+                  type="video/mp4"
+                />
+              </video>
+
+              <div className="p-6">
+
+                <h3 className="text-xl font-bold text-slate-900">
+                  Satin
+                </h3>
+
+                <p className="mt-2 leading-6 text-slate-600">
+                  Explore our satin textile collection.
+                </p>
+
+              </div>
+
+            </div>
+
+            {/* WELSOFT QUILT */}
+
+            <div className="overflow-hidden rounded-[30px] border border-slate-200 bg-white shadow-sm">
+
+              <video
+                controls
+                preload="metadata"
+                className="aspect-video w-full object-cover"
+              >
+                <source
+                  src="/videos/welsoft-quilt.mp4"
+                  type="video/mp4"
+                />
+              </video>
+
+              <div className="p-6">
+
+                <h3 className="text-xl font-bold text-slate-900">
+                  Welsoft Quilts
+                </h3>
+
+                <p className="mt-2 leading-6 text-slate-600">
+                  Discover our soft and comfortable welsoft quilt collection.
+                </p>
+
+              </div>
+
+            </div>
+
+            {/* BATHROBES */}
+
+            <div className="overflow-hidden rounded-[30px] border border-slate-200 bg-white shadow-sm">
+
+              <video
+                controls
+                preload="metadata"
+                className="aspect-video w-full object-cover"
+              >
+                <source
+                  src="/videos/bathrobe.mp4"
+                  type="video/mp4"
+                />
+              </video>
+
+              <div className="p-6">
+
+                <h3 className="text-xl font-bold text-slate-900">
+                  Bathrobes
+                </h3>
+
+                <p className="mt-2 leading-6 text-slate-600">
+                  Take a closer look at our bathrobe collection.
+                </p>
+
+              </div>
+
+            </div>
+
+          </div>
+
+          {/* MATTRESS PROTECTOR VIDEOS */}
+
+          <div className="mt-12">
+
+            <div className="mb-7 text-center">
+
+              <h3 className="text-2xl font-bold text-slate-900">
+                Mattress Protectors
+              </h3>
+
+              <p className="mt-2 text-slate-600">
+                Explore our mattress protector collection.
+              </p>
+
+            </div>
+
+            <div className="mx-auto grid max-w-4xl gap-7 md:grid-cols-2">
+
+              {/* MICRO PROTECTOR */}
+
+              <div className="overflow-hidden rounded-[30px] border border-slate-200 bg-white shadow-sm">
+
+                <video
+                  controls
+                  preload="metadata"
+                  className="aspect-video w-full object-cover"
+                >
+                  <source
+                    src="/videos/micro-protector.mp4"
+                    type="video/mp4"
+                  />
+                </video>
+
+                <div className="p-6">
+
+                  <h3 className="text-xl font-bold text-slate-900">
+                    Micro Protector
+                  </h3>
+
+                  <p className="mt-2 leading-6 text-slate-600">
+                    Explore our micro mattress protector collection.
+                  </p>
+
+                </div>
+
+              </div>
+
+              {/* QUILTED PROTECTOR */}
+
+              <div className="overflow-hidden rounded-[30px] border border-slate-200 bg-white shadow-sm">
+
+                <video
+                  controls
+                  preload="metadata"
+                  className="aspect-video w-full object-cover"
+                >
+                  <source
+                    src="/videos/quilted-protector.mp4"
+                    type="video/mp4"
+                  />
+                </video>
+
+                <div className="p-6">
+
+                  <h3 className="text-xl font-bold text-slate-900">
+                    Quilted Protector
+                  </h3>
+
+                  <p className="mt-2 leading-6 text-slate-600">
+                    Explore our quilted mattress protector collection.
+                  </p>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </motion.div>
 
         {/* BOTTOM CTA */}
 
